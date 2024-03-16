@@ -1,0 +1,26 @@
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import SplashScreen from "../screens/SplashScreen";
+import LoginScreen from "../screens/LoginScreen";
+import { PATH } from "./NavigationPath";
+import HomeScreen from "../screens/HomeScreen";
+import RegisterScreen from "../screens/RegisterScreen";
+
+const Stack = createNativeStackNavigator();
+
+// create a component
+const RootNavigator = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName={PATH.SPLASH} screenOptions={{ headerShown: false }}>
+        <Stack.Screen name={PATH.SPLASH} component={SplashScreen} />
+        <Stack.Screen name={PATH.LOGIN} component={LoginScreen} />
+        <Stack.Screen name={PATH.HOME} component={HomeScreen} />
+        <Stack.Screen name={PATH.REGISTER} component={RegisterScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default RootNavigator;
