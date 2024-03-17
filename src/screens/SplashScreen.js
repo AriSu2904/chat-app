@@ -7,22 +7,19 @@ import { splashStyle } from "./styles/Splash.style";
 
 // create a component
 const SplashScreen = ({ navigation }) => {
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     navigation.navigate(PATH.LOGIN);
-  //   }, 3000);
-  // }, []);
-
   return (
     <SafeAreaView style={splashStyle.container}>
       <View style={splashStyle.container}>
         <Image source={require("../images/hands.png")} resizeMode="contain" style={splashStyle.image} />
       </View>
       <View style={splashStyle.textContainer}>
-        <Text style={splashStyle.text}>W e l c o m e</Text>
-        <View style={{ marginHorizontal: 20 }}>
-          <TouchableOpacity style={splashStyle.btn}>
+        <Text style={splashStyle.text}>Hi, Glad to see you</Text>
+        <View style={splashStyle.btnContainer}>
+          <TouchableOpacity style={splashStyle.btnWithBg} onPress={() => navigation.replace(PATH.LOGIN)}>
             <Text style={splashStyle.btnText}>Login</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={splashStyle.btnNoBg} onPress={() => navigation.replace(PATH.REGISTER)}>
+            <Text style={splashStyle.btnBlackText}>Register</Text>
           </TouchableOpacity>
         </View>
       </View>
