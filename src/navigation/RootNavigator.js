@@ -5,7 +5,8 @@ import SplashScreen from "../screens/SplashScreen";
 import LoginScreen from "../screens/login/LoginScreen";
 import { PATH } from "./NavigationPath";
 import HomeScreen from "../screens/main/HomeScreen";
-import RegisterScreen from "../screens/register/RegisterScreen";
+import InformationFormScreen from "../screens/register/InformationFormScreen";
+import CredentialFormScreen from "../screens/register/CredentialForm";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +18,8 @@ const RootNavigator = () => {
         <Stack.Screen name={PATH.SPLASH} component={SplashScreen} />
         <Stack.Screen name={PATH.LOGIN} component={LoginScreen} />
         <Stack.Screen name={PATH.HOME} component={HomeScreen} />
-        <Stack.Screen name={PATH.REGISTER} component={RegisterScreen} />
+        <Stack.Screen name={PATH.REGISTER} component={InformationFormScreen} />
+        <Stack.Screen name={PATH.REGISTER2} component={CredentialFormScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

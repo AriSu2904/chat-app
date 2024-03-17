@@ -20,7 +20,7 @@ const LoginScreen = ({ navigation }) => {
         <Text style={formStyle.hiText}>Glad to see you again!</Text>
       </View>
       <View style={formStyle.formContainer}>
-        <TextInput style={formStyle.textInput} keyboardType="email-address" placeholder="Enter your email" />
+        <TextInput style={formStyle.textInput} keyboardType="email-address" placeholder="Enter your email / username" />
         <TextInput style={[formStyle.textInput, { marginTop: 25 }]} secureTextEntry placeholder="Enter your password" />
         <TouchableOpacity style={formStyle.btnForgotPW}>
           <Text style={formStyle.forgotPassword}>Forgot Password?</Text>
@@ -29,7 +29,7 @@ const LoginScreen = ({ navigation }) => {
           <Text style={formStyle.loginText}>Login Now</Text>
         </TouchableOpacity>
       </View>
-      <View style={formStyle.register}>
+      <View style={formStyle.footer}>
         <Text style={{ fontSize: 15, fontWeight: "400" }}>
           Don’t have an account?{" "}
           <Text style={{ color: "#35C2C1", fontWeight: "600" }} onPress={() => navigation.replace(PATH.REGISTER)}>

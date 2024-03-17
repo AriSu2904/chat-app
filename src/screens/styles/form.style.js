@@ -16,15 +16,14 @@ export const formStyle = StyleSheet.create({
     fontWeight: "600",
   },
   hiText: {
-    fontSize: 25,
-    fontWeight: "400",
-    alignSelf: "center",
+    fontSize: 32,
+    fontWeight: "600",
+    color: "#35C2C1",
   },
   formContainer: {
     flex: 1,
-    marginTop: screenHeight * 0.05,
     marginHorizontal: screenWidth * 0.05,
-    marginVertical: screenHeight * 0.01,
+    marginVertical: screenHeight * 0.02,
   },
   textInput: {
     borderWidth: 1,
@@ -42,7 +41,7 @@ export const formStyle = StyleSheet.create({
     color: "#61677A",
   },
   btnLogin: {
-    marginTop: screenWidth * 0.15,
+    marginTop: screenWidth * 0.05,
     padding: screenHeight * 0.027,
     borderRadius: 18,
     backgroundColor: "#1E232C",
@@ -53,15 +52,15 @@ export const formStyle = StyleSheet.create({
     fontWeight: "600",
     alignSelf: "center",
   },
-  register: {
-    flex: 0.1,
+  footer: {
+    position: "absolute",
     alignSelf: "center",
+    bottom: 10,
   },
   nameContainer: {
     flexDirection: "row",
     marginRight: screenWidth * 0.021,
-    marginVertical: screenHeight * 0.01,
-    marginBottom: screenHeight * 0.02,
+    marginVertical: screenHeight * 0.02,
     gap: screenHeight * 0.01,
   },
   name: {
@@ -79,7 +78,6 @@ export const formStyle = StyleSheet.create({
     borderRadius: 18,
     borderColor: "#61677A",
     backgroundColor: "#EEEEEE",
-    marginBottom: screenHeight * 0.01,
   },
   dropdown: {
     width: screenWidth * 0.44,
@@ -87,5 +85,29 @@ export const formStyle = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 15,
     backgroundColor: "#EEEEEE",
+  },
+  btnNext: {
+    marginTop: screenWidth * 0.06,
+    padding: screenHeight * 0.018,
+    borderRadius: 18,
+    backgroundColor: "#1E232C",
+  },
+  dateInput: {
+    borderWidth: 1,
+    padding: screenHeight * 0.02,
+    borderRadius: 18,
+    borderColor: "#61677A",
+    backgroundColor: "#EEEEEE",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  userTagInput: {
+    borderWidth: 1,
+    padding: screenHeight * 0.015,
+    borderRadius: 18,
+    borderColor: "#61677A",
+    backgroundColor: "#EEEEEE",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
