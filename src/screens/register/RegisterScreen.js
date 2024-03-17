@@ -5,7 +5,9 @@ import { formStyle } from "../styles/form.style";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { PATH } from "../../navigation/NavigationPath";
 import BackIcon from "../shared/BackIcon";
-import { Picker } from "@react-native-picker/picker";
+import { Dropdown } from "react-native-element-dropdown";
+import DatePicker from "../shared/DatePicker";
+import { compareDate, extractDate } from "../../utils/dateUtil";
 
 // create a component
 const RegisterScreen = ({ navigation }) => {
@@ -13,7 +15,20 @@ const RegisterScreen = ({ navigation }) => {
     navigation.replace(PATH.SPLASH);
   };
 
-  const [selectedLanguage, setSelectedLanguage] = useState();
+  const genders = [
+    { label: "Laki-laki", value: "Laki-laki" },
+    { label: "Perempuan", value: "Perempuan" },
+  ];
+
+  const [selectedGender, setGender] = useState();
+  const [selectedDate, setDate] = useState(new Date());
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate;
+    setDate(currentDate);
+  };
+
+  const displayText = compareDate(selectedDate) ? "Select birth date" : extractDate(selectedDate);
 
   return (
     <SafeAreaView style={formStyle.container}>
@@ -30,16 +45,29 @@ const RegisterScreen = ({ navigation }) => {
         <TextInput style={formStyle.registerInput} keyboardType="email-address" placeholder="enter your email" />
         <View style={formStyle.nameContainer}>
           <TextInput style={formStyle.name} keyboardType="numeric" placeholder="your phone number" />
-          <View>
-            <Picker selectedValue={selectedLanguage} onValueChange={(itemValue, itemIndex) => setSelectedLanguage(itemValue)}>
-              <Picker.Item label="Java" value="java" />
-              <Picker.Item label="JavaScript" value="js" />
-            </Picker>
+          <Dropdown
+            style={formStyle.dropdown}
+            placeholderStyle={{ fontSize: 14, color: "#1E232C" }}
+            data={genders}
+            maxHeight={300}
+            selectedTextStyle={{ fontSize: 14, color: "#1E232C" }}
+            labelField="label"
+            valueField="value"
+            placeholder="Select Gender"
+            value={selectedGender}
+            onChange={(item) => {
+              setGender(item);
+            }}
+          />
+        </View>
+        <View style={formStyle.nameContainer}>
+          <View style={[formStyle.name, { justifyContent: "center", alignItems: "center" }]}>
+            <DatePicker date={selectedDate} onChange={onChange} text={displayText} />
           </View>
+          <TextInput style={formStyle.name} placeholder="Enter user tag" />
         </View>
         <TextInput style={formStyle.registerInput} secureTextEntry placeholder="Enter your password" />
-
-        <TouchableOpacity style={formStyle.btnLogin}>
+        <TouchableOpacity style={formStyle.btnLogin} onPress={() => console.log(displayText)}>
           <Text style={formStyle.loginText}>Register Now</Text>
         </TouchableOpacity>
       </View>

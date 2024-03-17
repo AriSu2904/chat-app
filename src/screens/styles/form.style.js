@@ -81,4 +81,11 @@ export const formStyle = StyleSheet.create({
     backgroundColor: "#EEEEEE",
     marginBottom: screenHeight * 0.01,
   },
+  dropdown: {
+    width: screenWidth * 0.44,
+    paddingHorizontal: 8,
+    borderWidth: 1,
+    borderRadius: 15,
+    backgroundColor: "#EEEEEE",
+  },
 });
